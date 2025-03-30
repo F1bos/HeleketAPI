@@ -17,7 +17,7 @@ DEFAULT_HEADERS = {
     "sign": "",
     "Content-Type": "application/json"
 }
-API_BASE_URL = "https://api.cryptomus.com/{}"
+API_BASE_URL = "https://api.heleket.com/{}"
 
 
 class BaseSession(ABC):
@@ -78,7 +78,7 @@ class BaseSession(ABC):
 
 
 # class _BaseCryptomusAPI(abc.ABC):
-#     _BASE_API_LINK = "https://api.cryptomus.com/"
+#     _BASE_API_LINK = "https://api.heleket.com/"
 
 #     def __init__(self, merchant_uuid: str, api_key: str) -> None:
 #         self._merchant_uuid = merchant_uuid

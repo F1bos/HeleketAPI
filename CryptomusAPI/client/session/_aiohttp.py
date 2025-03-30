@@ -6,7 +6,7 @@ from aiohttp import ClientSession
 from .base import BaseSession
 from CryptomusAPI.methods.base import Method, ResponseType
 
-API_BASE_URL = "https://api.cryptomus.com/{}"
+API_BASE_URL = "https://api.heleket.com/{}"
 
 
 class AIOHTTPSession(BaseSession):
