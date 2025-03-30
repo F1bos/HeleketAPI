@@ -31,6 +31,7 @@ class PaymentInfoResponse:
     merchant_amount: float | None = None
     network: str | None = None
     address: str | None = None
+    address_qr_code: str | None = None
     from_: str | None = None
     txid: str | None = None
 
