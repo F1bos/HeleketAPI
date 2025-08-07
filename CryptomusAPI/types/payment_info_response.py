@@ -6,18 +6,16 @@ from typing import Any
 
 @dataclass
 class ConvertInfo:
-    to_currency: str
-    commission: float
-    rate: float
-    amount: float
+    from_currency: str
+    from_amount: float
+    from_network: str
 
     @classmethod
     def from_json(cls, data: dict[str, Any]) -> ConvertInfo:
         return cls(
-            to_currency=data.get("to_currency"),
-            commission=float(data.get("commission", 0)),
-            rate=float(data.get("rate", 0)),
-            amount=float(data.get("amount", 0))
+            from_currency=data.get("from_currency"),
+            from_amount=float(data.get("from_amount", 0)),
+            from_network=data.get("from_network", 0),
         )
 
 
@@ -51,11 +49,11 @@ class PaymentInfoResponse:
     address_qr_code: str | None = None
     from_: str | None = None
     txid: str | None = None
-    convert: ConvertInfo | None = None
+    convert_from: ConvertInfo | None = None
 
     @classmethod
     def from_json(cls, data: dict[str, Any]) -> PaymentInfoResponse:
         from_ = data["result"].pop("from", None)
-        convert_data = data["result"].pop("convert", None)
-        convert = ConvertInfo.from_json(convert_data) if convert_data else None
-        return cls(state=data["state"], from_=from_, convert=convert, **data["result"])
+        convert_data = data["result"].pop("convert_from", None)
+        convert_from = ConvertInfo.from_json(convert_data) if convert_data else None
+        return cls(state=data["state"], from_=from_, convert_from=convert_from, **data["result"])
